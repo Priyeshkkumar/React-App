@@ -5,10 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // importing bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+// importing counter class
+import Counter from "./components/counter";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Counter></Counter>
   </React.StrictMode>,
   document.getElementById("root")
 );
