@@ -3,10 +3,10 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 },
+      { id: 1, value: 4 },
+      { id: 2, value: 3 },
+      { id: 3, value: 2 },
+      { id: 4, value: 1 },
     ],
   };
   render() {
@@ -14,7 +14,9 @@ class Counters extends Component {
     return (
       <div>
         {this.state.counters.map((counter) => (
-          <Counter key={counter.id} />
+          // key is an attribute for uniquely identifying element while value and selected
+          // attributes are properties of each counter object
+          <Counter key={counter.id} value={counter.value} />
         ))}
       </div>
     );

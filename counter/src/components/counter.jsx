@@ -9,7 +9,7 @@ class Counter extends Component {
   // State object is a property of React components, it includes
   // any data that this object needs
   state = {
-    count: 0,
+    value: this.props.value,
   };
   //We can also use inline styles:`style={{fontSize: 30}}`
   styles = {
@@ -29,7 +29,7 @@ class Counter extends Component {
     // In react we cannot directly update the value of state property(count),
     // therefore we need to use one of the method interited from Component class
     // i.e. this.setState
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
   render() {
     return (
@@ -49,14 +49,14 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = " badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
     //  Object De-Structuring: We can do the following to pick up the
     // class object's value
-    const { count } = this.state;
+    const { value: count } = this.state;
     // we can also do this
     const x = <h1>Zero</h1>;
     return count === 0 ? "Zero" : count;
