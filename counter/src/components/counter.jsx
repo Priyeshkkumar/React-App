@@ -26,6 +26,10 @@ class Counter extends Component {
   // We normally do not have access to state vars in event handler functions
   handleIncrement = () => {
     console.log("Increment Clicked", this);
+    // In react we cannot directly update the value of state property(count),
+    // therefore we need to use one of the method interited from Component class
+    // i.e. this.setState
+    this.setState({ count: this.state.count + 1 });
   };
   render() {
     return (
@@ -34,7 +38,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrement()}
+          onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
