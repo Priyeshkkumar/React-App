@@ -10,6 +10,21 @@ class Counters extends Component {
     ],
   };
 
+  handleReset = () => {
+    const counters = this.state.counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters });
+  };
+
+  handleIncrement = (counter) => {
+    console.log(Counter);
+    const counters = [...this.state.counters];
+    const index = counter.indexOf(counter);
+    this.setState({ counters });
+  };
+
   handleDelete = (counterId) => {
     console.log("Event Handler Called", counterId);
     // Copy all the counters object except the on with counterId
@@ -21,6 +36,12 @@ class Counters extends Component {
     // Use map method to render the array of Counters
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-sm m-2"
+        >
+          Reset
+        </button>
         {this.state.counters.map((counter) => (
           // key is an attribute for uniquely identifying element while value and selected
           // attributes are properties of each counter object
@@ -32,6 +53,7 @@ class Counters extends Component {
             counter={counter}
             // passing "handleDelete" as a prop to "Component"
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
           ></Counter>
         ))}
       </div>
