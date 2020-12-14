@@ -9,7 +9,7 @@ class Counter extends Component {
   // State object is a property of React components, it includes
   // any data that this object needs
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
   };
   //We can also use inline styles:`style={{fontSize: 30}}`
   styles = {
@@ -44,6 +44,14 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button
+          // "Counter" Component with onClick is raising an event and "Counters" component
+          // is handeling that event.
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
@@ -65,3 +73,6 @@ class Counter extends Component {
 }
 
 export default Counter;
+
+// Imp Note: The component that owns a piece of state, should br the one
+// modifying it.

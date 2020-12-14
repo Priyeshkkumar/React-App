@@ -9,6 +9,14 @@ class Counters extends Component {
       { id: 4, value: 1 },
     ],
   };
+
+  handleDelete = (counterId) => {
+    console.log("Event Handler Called", counterId);
+    // Copy all the counters object except the on with counterId
+    const counters = this.state.counters.filter((c) => c.id !== counterId);
+    this.setState({ counters });
+  };
+
   render() {
     // Use map method to render the array of Counters
     return (
@@ -18,8 +26,12 @@ class Counters extends Component {
           // attributes are properties of each counter object
           <Counter
             key={counter.id}
-            value={counter.value}
-            id={counter.id}
+            // value={counter.value}
+            // id={counter.id}
+            // Passing the whole counter object
+            counter={counter}
+            // passing "handleDelete" as a prop to "Component"
+            onDelete={this.handleDelete}
           ></Counter>
         ))}
       </div>
