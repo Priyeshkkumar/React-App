@@ -16,10 +16,11 @@ class Counters extends Component {
         {this.state.counters.map((counter) => (
           // key is an attribute for uniquely identifying element while value and selected
           // attributes are properties of each counter object
-          <Counter key={counter.id} value={counter.value}>
-            {/* Child component is another attribute of props */}
-            <h4>Counter No: {counter.id}</h4>
-          </Counter>
+          <Counter
+            key={counter.id}
+            value={counter.value}
+            id={counter.id}
+          ></Counter>
         ))}
       </div>
     );
