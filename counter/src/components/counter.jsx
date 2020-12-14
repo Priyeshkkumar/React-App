@@ -18,9 +18,13 @@ class Counter extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log("prevProps", prevProps);
     console.log("prevState", prevState);
-    if (prevProps.counter.value !== this.prop.counter.value) {
-      // Ajax call and get new data from server
-    }
+    // if (prevProps.counter.value !== this.prop.counter.value) {
+    //   // Ajax call and get new data from server
+    // }
+  }
+  // This method is called just before a component is removed from DOM
+  componentWillUnmount() {
+    console.log("Counter-Unmount");
   }
 
   render() {
