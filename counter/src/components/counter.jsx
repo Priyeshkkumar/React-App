@@ -10,6 +10,7 @@ class Counter extends Component {
   // any data that this object needs
   state = {
     count: 0,
+    tags: ["tag1", "tag2", "tag3"],
   };
   //We can also use inline styles:`style={{fontSize: 30}}`
   styles = {
@@ -24,6 +25,13 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button className="btn btn-secondary btn-sm">Increment</button>
+        <ul>
+          {this.state.tags.map((tag) => (
+            // Each li should have unique key as react will have to know which
+            // component get changed in virtual DOM
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </React.Fragment>
     );
   }
