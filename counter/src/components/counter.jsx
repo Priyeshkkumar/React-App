@@ -11,23 +11,30 @@ class Counter extends Component {
   state = {
     count: 0,
   };
+  //We can also use inline styles:`style={{fontSize: 30}}`
+  styles = {
+    fontSize: 20,
+    fontWeight: "bold",
+  };
 
   render() {
     return (
       <React.Fragment>
-        <span>{this.formatCount()}</span>
-        <button>Increment</button>
+        <span style={this.styles} className="badge badge-primary m-2">
+          {this.formatCount()}
+        </span>
+        <button className="btn btn-secondary btn-sm">Increment</button>
       </React.Fragment>
     );
   }
 
   formatCount() {
-    //  Object Destructuring: We can do the following to pick up the
+    //  Object De-Structuring: We can do the following to pick up the
     // class object's value
     const { count } = this.state;
     // we can also do this
     const x = <h1>Zero</h1>;
-    return count === 0 ? x : count;
+    return count === 0 ? "Zero" : count;
   }
 }
 
