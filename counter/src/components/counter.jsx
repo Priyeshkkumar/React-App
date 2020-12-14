@@ -18,37 +18,27 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags !</p>;
+    return (
+      <ul>
+        {this.state.tags.map((tag) => (
+          // Each li should have unique key as react will have to know which
+          // component get changed in virtual DOM
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     return (
       <React.Fragment>
-        <span style={this.styles} className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-        <ul>
-          {this.state.tags.map((tag) => (
-            // Each li should have unique key as react will have to know which
-            // component get changed in virtual DOM
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        {/* We cannot use conditional statements in jsx tags, therefore
+we need to use either functions like renderTags or do the following: */}
+        {this.state.tags.length === 0 && "Please create a new tag"}
+        {this.renderTags()}
       </React.Fragment>
     );
-  }
-
-  getBadgeClasses() {
-    let classes = " badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
-    return classes;
-  }
-
-  formatCount() {
-    //  Object De-Structuring: We can do the following to pick up the
-    // class object's value
-    const { count } = this.state;
-    // we can also do this
-    const x = <h1>Zero</h1>;
-    return count === 0 ? "Zero" : count;
   }
 }
 
