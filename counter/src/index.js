@@ -6,11 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 // importing bootstrap
 import "bootstrap/dist/css/bootstrap.css";
 // importing counter class
-import Counter from "./components/counter";
+import Counters from "./components/counters";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter></Counter>
+    <Counters></Counters>
   </React.StrictMode>,
   document.getElementById("root")
 );
