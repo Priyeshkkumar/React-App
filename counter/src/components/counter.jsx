@@ -15,6 +15,14 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.prop.counter.value) {
+      // Ajax call and get new data from server
+    }
+  }
+
   render() {
     console.log("Counter-Rendered");
     return (
