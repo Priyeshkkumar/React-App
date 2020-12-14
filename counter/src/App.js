@@ -15,6 +15,17 @@ class App extends Component {
     ],
   };
 
+  constructor() {
+    super();
+    console.log("App-Constructor");
+  }
+  // Lifecycle hooks can only be used with classes
+  componentDidMount() {
+    // Ajax call
+    // this.setState({})
+    console.log("App-Mounted");
+  }
+
   handleReset = () => {
     const counters = this.state.counters.map((c) => {
       c.value = 0;
@@ -39,6 +50,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App-Rendered");
     return (
       <React.Fragment>
         <NavBar
